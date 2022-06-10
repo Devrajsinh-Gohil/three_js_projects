@@ -62,7 +62,7 @@ function animate() {
     }
     if (Movements.isPressed(38)) {
       //up
-        // camera.position.x += 0.05;
+        camera.position.x += 0.05;
         camera.position.y += 0.05;
     }
     if (Movements.isPressed(39)) {
@@ -71,18 +71,18 @@ function animate() {
     }
     if (Movements.isPressed(40)) {
       //down
-        // camera.position.x -= 0.05;
+        camera.position.x -= 0.05;
         camera.position.y -= 0.05;
     }
-    if (Movements.isPressed(73)) {
-      //right
-        camera.position.z -= 0.05;
-    }
-    if (Movements.isPressed(79)) {
-      //down
-        // camera.position.x -= 0.05;
-        camera.position.z += 0.05;
-    }
+    // if (Movements.isPressed(73)) {
+    //   //right
+    //     camera.position.z -= 0.05;
+    // }
+    // if (Movements.isPressed(79)) {
+    //   //down
+    //     // camera.position.x -= 0.05;
+    //     camera.position.z += 0.05;
+    // }
     
     camera.lookAt(surface.position);
     renderer.render(scene, camera);
