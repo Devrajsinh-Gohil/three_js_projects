@@ -6,11 +6,18 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
+const material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
+cube.position.y = 1;
+
+const surface_geometry = new THREE.BoxGeometry( 100, 0.1, 50 );
+const surface_material = new THREE.MeshPhongMaterial( { color: 0xffffff } );
+const surface = new THREE.Mesh( surface_geometry, surface_material );
+scene.add( surface );
 
 camera.position.z = 5;
+camera.position.set(0, 1.5, 10)
 
 
 function animate() {
@@ -23,7 +30,7 @@ function animate() {
 animate();
 
 const light = new THREE.AmbientLight( 0x404040 ); // soft white light
-const directionalLight = new THREE.DirectionalLight( 0x00ff00, 1 );
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
 light.add( directionalLight );
 scene.add( light );
 
