@@ -1,2 +1,2 @@
 import './style.css'
-console.log('Hello three.js')
+import * as THREE from 'three'
