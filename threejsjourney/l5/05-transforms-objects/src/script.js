@@ -7,7 +7,7 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-/**
+/*
  * Objects
  */
 const geometry = new THREE.BoxGeometry(1, 1, 1)
