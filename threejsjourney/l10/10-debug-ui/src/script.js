@@ -5,6 +5,13 @@ import gsap from 'gsap'
 import * as dat from 'dat.gui'
 
 /**
+ * Debug objects
+*/
+const params = {
+    color: 0xff0000,
+}
+
+/**
  * Base
  */
 // Canvas
@@ -109,3 +116,10 @@ const gui = new dat.GUI()
 // booleans
     gui
         .add(mesh, 'visible')
+
+    gui
+        .add(material, 'wireframe')
+
+// colors
+    gui
+        .addColor(params, 'color')
