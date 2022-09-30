@@ -9,6 +9,9 @@ import * as dat from 'dat.gui'
 */
 const params = {
     color: 0xff0000,
+    spin: () => {
+        gsap.to(mesh.rotation, { duration: 1, y: mesh.rotation.y + Math.PI * 2})
+    }
 }
 
 /**
@@ -25,7 +28,7 @@ const scene = new THREE.Scene()
  */
 const geometry = new THREE.BoxBufferGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({ 
-    color: 0xff0000, 
+    color: params.color, 
     // wireframe: true
 })
 const mesh = new THREE.Mesh(geometry, material)
@@ -98,7 +101,15 @@ tick()
 /**
  * Debug
  */
-const gui = new dat.GUI()
+const gui = new dat.GUI({ closed: true, width: 400 })
+// gui.hide()
+// colors
+    gui
+        .addColor(params, 'color')
+        .onChange(() => {
+            material.color.set(params.color)
+        })
+
 // postitions
     // method 1
     gui.add(mesh.position, 'y', -3, 3 ,0.01).name('cube y ')
@@ -120,6 +131,6 @@ const gui = new dat.GUI()
     gui
         .add(material, 'wireframe')
 
-// colors
+// functions
     gui
-        .addColor(params, 'color')
+        .add(params, 'spin')
